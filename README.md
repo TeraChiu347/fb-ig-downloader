@@ -2,6 +2,12 @@
 
 **不想自己 build？直接到 [Releases](https://github.com/TeraChiu347/fb-ig-downloader/releases/latest) 下載 `FBIGWebDownloader-mac.zip`，解壓縮後雙擊 `.app` 就能用。**
 
+> ⚠️ **第一次打開一定要先做這步**：因為這個 App 沒有花錢申請 Apple 開發者憑證公證，macOS 會判定它「有風險」而拒絕開啟，右鍵『打開』在新版 macOS 上常常也沒用。請打開「終端機」，貼上這行指令（如果解壓縮到別的資料夾，把路徑換掉）：
+> ```
+> xattr -cr ~/Downloads/FBIGWebDownloader.app
+> ```
+> 跑完之後再雙擊 `.app` 就能正常開啟了，之後每次開啟都不會再跳警告。
+
 雙擊開啟的 macOS 桌面小程式，貼上 Facebook 或 Instagram 的公開影片網址（可一次貼多個，一行一個），按「開始下載」就會存到 `~/Downloads/FB_IG_影片下載/`。
 
 底層都用 [yt-dlp](https://github.com/yt-dlp/yt-dlp) 處理實際下載，打包成不需要對方裝 Python 的 `.app`。有兩個版本，程式邏輯（`core.py`）共用：
@@ -48,7 +54,7 @@
 - **只支援 macOS**。iOS（iPhone/iPad）因 App Store 沙盒限制無法跑這類程式；若要 Windows 版，需在 Windows 機器上用同一份原始碼重新打包一次。
 - 只支援**公開**影片，需要登入才能看的私人貼文/限時動態無法下載。
 - 下載格式固定用 `best`（單一檔案、已包含影音），確保不需要對方電腦裝 ffmpeg 就能用；相對地畫質不一定是網站上的最高選項。
-- 首次執行如果 macOS 跳出「無法驗證開發者」，需要到「系統設定 → 隱私權與安全性」允許執行，或按住 Control 點兩下開啟。
+- 首次執行 macOS 會判定為有風險而拒絕開啟（因為沒有付費做 Apple 開發者公證），需先在終端機執行 `xattr -cr <App 路徑>` 解除隔離標記，見上方說明。
 - yt-dlp 依賴各平台網頁結構，FB/IG 改版可能導致下載失效，屆時執行 `pip install -U yt-dlp` 更新後重新打包即可。
 - 桌面版（tkinter）**Cmd+V 貼上快捷鍵在打包後的 App 裡不會作用**（macOS 上一個常見、目前沒找到根治方法的問題），改用右鍵（或兩指按 / Control+點擊）叫出貼上選單。網頁版因為是一般瀏覽器文字框，沒有這個問題。
 
