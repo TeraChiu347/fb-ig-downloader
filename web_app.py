@@ -81,9 +81,12 @@ def _port_in_use():
 
 def main():
     if _port_in_use():
-        # 已經有一個實例在跑（例如使用者重複雙擊開啟），直接開新分頁就好
+        # 已經有一個實例在跑（例如使用者重複雙擊開啟），開新分頁就好。
+        # 開完不能馬上結束行程——.app 秒退會被 Finder 的 LaunchServices
+        # 誤判成「應用程式並未打開」而跳出錯誤視窗，所以在這裡靜靜待著。
         webbrowser.open(f"http://{HOST}:{PORT}")
-        return
+        while True:
+            time.sleep(3600)
     threading.Thread(target=open_browser, daemon=True).start()
     app.run(host=HOST, port=PORT, debug=False)
 
