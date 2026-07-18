@@ -2,3 +2,4 @@ yt-dlp
 pyinstaller
 certifi
 flask
+gunicorn
