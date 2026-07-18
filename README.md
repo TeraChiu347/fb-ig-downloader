@@ -1,5 +1,7 @@
 # FB / IG 影片下載工具
 
+**不想自己 build？直接到 [Releases](https://github.com/TeraChiu347/fb-ig-downloader/releases/latest) 下載 `FBIGWebDownloader-mac.zip`，解壓縮後雙擊 `.app` 就能用。**
+
 雙擊開啟的 macOS 桌面小程式，貼上 Facebook 或 Instagram 的公開影片網址（可一次貼多個，一行一個），按「開始下載」就會存到 `~/Downloads/FB_IG_影片下載/`。
 
 底層都用 [yt-dlp](https://github.com/yt-dlp/yt-dlp) 處理實際下載，打包成不需要對方裝 Python 的 `.app`。有兩個版本，程式邏輯（`core.py`）共用：
