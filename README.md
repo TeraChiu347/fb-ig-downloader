@@ -1,6 +1,6 @@
 # FB / IG 影片下載工具
 
-**不想自己 build？直接到 [Releases](https://github.com/TeraChiu347/fb-ig-downloader/releases/latest) 下載 `FBIGWebDownloader-mac.zip`，解壓縮後雙擊 `.app` 就能用。**
+**不想自己 build？直接到 [Releases](https://github.com/TeraChiu347/fb-ig-downloader/releases/latest) 下載，解壓縮後雙擊 `.app` 就能用。有兩個版本可選：`FBIGWebDownloader-mac.zip`（網頁版，介面較美觀，推薦）或 `FBIGDownloader-mac.zip`（桌面版，原生視窗），功能完全一樣。**
 
 > ⚠️ **第一次打開一定要先做這步**：因為這個 App 沒有花錢申請 Apple 開發者憑證公證，macOS 會判定它「有風險」而拒絕開啟。**Control 點兩下開啟這招在新版 macOS 上沒用**，請改用以下任一方法：
 >
